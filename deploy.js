@@ -10,12 +10,15 @@ async function main() {
     process.env.RPC_URL
   );
   // This allows us to interact with a wallet to do transactions
-  const wallet = new ethers.Wallet(
-    process.env.PRIVATE_KEY,
-    provider
-  );
-  
-  console.log(process.env.PRIVATE_KEY);
+  const wallet = new ethers.Wallet(process.env.PRIVATE_KEY,provider);
+ 
+  // const encrpytedJson = fs.readFileSync("./.encryptedKey.json", "utf8");
+  // let wallet = new ethers.Wallet.fromEncryptedJsonSync(
+  //   encrpytedJson, 
+  //   process.env.PRIVATE_KEY_PASSWORD
+  // ); 
+  // wallet = await wallet.connect(provider);
+
   // reads both the bin and abi for simple storage constract
   const abi = fs.readFileSync("./SimpleStorage_sol_SimpleStorage.abi", "utf8");
   const binary = fs.readFileSync(
