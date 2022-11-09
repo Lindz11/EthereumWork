@@ -29,6 +29,8 @@ async function main() {
   console.log("Deploying contracts pls wait...");
   const contract = await contractFactory.deploy();
   await contract.deployTransaction.wait(1); 
+  // Outputs the contract address
+  console.log(`Contract Address: ${contract.address}`)
 
   // Get fav number from smart contract  
   const currentFavoriteNumber = await contract.retrieve(); 
